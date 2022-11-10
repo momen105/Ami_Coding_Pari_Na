@@ -75,6 +75,7 @@ class SearchView(generics.ListCreateAPIView):
 
     serializer_class = serializers.SearchSerializer
     queryset = models.SearchModel.objects.all()
+    permission_classes = permissions.IsAuthenticated
 
     def get(self, request, *args, **kwargs):
         current_user = self.request.user
